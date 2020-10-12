@@ -1,0 +1,697 @@
+#Imports
+import time
+import random
+import replit
+import sys
+
+
+#Variables
+global Health
+Health = 20
+Money = 0
+Coins = str(Money)
+HP = str(Health)
+Floor = 0
+Stairs = False
+Stairs2 = False
+
+
+
+#Functions
+
+
+#Combat
+def combat(health, money, ename, coinmin, coinmax, floorappend, ehp, edef, eatk, runmin, runmax,combati):
+  ghealth = health
+  gmoney = money
+  while battle1 == False:
+            if combati == "Fight":
+              if "Rouge" in party:
+                if "Rouge Dagger" in inventory:
+                  rougeamax = 10
+                  if rougea == 1: 
+                    print("The rouge in your party has struck and killed the "+ename+" in one blow.")
+                    time.sleep(1.5)
+                    fight1end = random.randint(coinmin, coinmax)
+                    Fight1end = str(fight1end)  
+                    print("You have found", Fight1end, "coins on the "+ename+".")
+                    time.sleep(1.5)
+                    gmoney = gmoney + fight1end
+                    Coins = str(gmoney)
+                    print("You now have", Coins, "coins.")
+                    time.sleep(1.5)
+                    floorappend
+                    return gmoney
+                    break
+                  else: 
+                    attackdice()
+                    time.sleep(1.5)
+                    defencedice()
+                    time.sleep(1.5)
+                    if adice <= edef:
+                      print("You do no damage to the "+ename+".")
+                      time.sleep(1.5)
+                      if ddice < eatk:
+                        edamage = eatk - ddice
+                        Edamage = str(edamage)
+                        print(ename,"did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                      elif ddice >= eatk:
+                        print("The ",ename,"did no damage to you.")
+                    elif adice > edef:
+                      damage = adice - edef
+                      Damage = str(damage)
+                      ehp = ehp - damage
+                      print("You did", Damage , "damage to the "+ename+".")
+                      time.sleep(1.5)
+                      if ehp <= 0:
+                        print("You have defeated the "+ename+".")
+                        time.sleep(1.5)
+                        fight1end = random.randint(coinmin, coinmax)
+                        Fight1end = str(fight1end)  
+                        print("You have found", Fight1end, "coins on the "+ename+".")
+                        time.sleep(1.5)
+                        gmoney = gmoney + fight1end
+                        Coins = str(gmoney)
+                        print("You now have", Coins, "coins.")
+                        time.sleep(1.5)
+                        floorappend
+                        return ghealth, gmoney
+
+                    else:
+                      if ddice < eatk:
+                        edamage = eatk - ddice
+                        Edamage = str(edamage)
+                        print(ename,"did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                        elif ddice >= eatk:
+                          print("The ",ename," did no damage to you.")
+                          time.sleep(1.5)
+                else:
+                  if rougea == 1: 
+                    print("The rouge in your party has struck and killed the "+ename+" in one blow.")
+                    time.sleep(1.5)
+                    fight1end = random.randint(coinmin, coinmax)
+                    Fight1end = str(fight1end)  
+                    print("You have found", Fight1end, "coins on the "+ename+".")
+                    time.sleep(1.5)
+                    gmoney = gmoney + fight1end
+                    Coins = str(gmoney)
+                    print("You now have", Coins, "coins.")
+                    time.sleep(1.5)
+                    floorappend
+                    return gmoney
+                    break
+                  else:
+                    attackdice()
+                    time.sleep(1.5)
+                    defencedice()
+                    time.sleep(1.5)
+                    if adice <= edef:
+                      print("You do no damage to the "+ename+".")
+                      time.sleep(1.5)
+                      if ddice < eatk:
+                        edamage = eatk - ddice
+                        Edamage = str(edamage)
+                        print(ename+" did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                      elif ddice >= 2:
+                        print("The "+ename+" did no damage to you.")
+                    elif adice > edef:
+                      damage = adice - edef
+                      Damage = str(damage)
+                      ehp = ehp - damage
+                      print("You did", Damage , "damage to the "+ename+".")
+                      time.sleep(1.5)
+                      if ehp <= 0:
+                        print("You have defeated the "+ename+".")
+                        time.sleep(1.5)
+                        fight1end = random.randint(3, 10)
+                        Fight1end = str(fight1end)  
+                        print("You have found", Fight1end, "coins on the "+ename+".")
+                        time.sleep(1.5)
+                        gmoney = gmoney + fight1end
+                        Coins = str(gmoney)
+                        print("You now have", Coins, "coins.")
+                        time.sleep(1.5)
+                        floorappend
+                        return ghealth, gmoney
+                    else:
+                      if ddice < eatk:
+                        edamage = eatk - ddice
+                        Edamage = str(edamage)
+                        print(ename+" did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                        elif ddice >= 2:
+                          print("The "+ename+" did no damage to you.")
+                          time.sleep(1.5) 
+              else: #No Rouge
+                attackdice()
+                time.sleep(1.5)
+                defencedice()
+                time.sleep(1.5)
+                if adice <= 2:
+                  print("You do no damage to the "+ename+".")
+                  time.sleep(1.5)
+                  if ddice < eatk:
+                        edamage = eatk - ddice
+                        Edamage = str(edamage)
+                        print(ename+" did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                  elif ddice >= eatk:
+                    print("The "+ename+" did no damage to you.")
+                    time.sleep(1.5)
+                elif adice > edef:
+                  damage = adice - edef
+                  Damage = str(damage)
+                  ehp = ehp - damage
+                  print("You did", Damage , "damage to the "+ename+".")
+                  time.sleep(1.5)
+                  if ehp <= 0:
+                    print("You have defeated the "+ename+".")
+                    fight1end = random.randint(coinmin, coinmax)
+                    Fight1end = str(fight1end)  
+                    print("You have found", Fight1end, "coins on the "+ename+".")
+                    time.sleep(1.5)
+                    gmoney = gmoney + fight1end
+                    Coins = str(gmoney)
+                    print("You now have", Coins, "coins.")
+                    time.sleep(1.5)
+                    floorappend
+                    return ghealth, gmoney
+                    break
+                  else:
+                    if ddice < eatk:
+                      edamage = eatk - ddice
+                      Edamage = str(edamage)
+                      print(ename+" did", Edamage, "damage to you.")
+                      ghealth = ghealth - edamage
+                      time.sleep(1.5)
+                      HP = str(ghealth)
+                      print("You have", HP, "health remaining.")
+                      time.sleep(1.5)
+                      if ghealth <= 0:
+                        return ghealth
+                        break
+                    elif ddice >= eatk:
+                      print("The "+ename+" did no damage to you.")
+                      time.sleep(1.5)
+            elif combati == "Run":
+              run = random.randint(runmin,runmax)
+              if run == 1:
+                print("You successfully ran away from the "+ename+".")
+                time.sleep(1.5)
+                break
+              else:
+                print("You fail to run away and you must fight the "+ename+".")
+                time.sleep(1.5)
+                attackdice()
+                time.sleep(1.5)
+                defencedice()
+                time.sleep(1.5)
+                if adice <= edef:
+                  print("You do no damage to the "+ename+".")
+                  time.sleep(1.5)
+                  if ddice < eatk:
+                        edamage = eatk - ddice
+                        edamage = str(edamage)
+                        print(ename+" did", Edamage, "damage to you.")
+                        ghealth = ghealth - edamage
+                        time.sleep(1.5)
+                        HP = str(ghealth)
+                        print("You have", HP, "health remaining.")
+                        time.sleep(1.5)
+                        if ghealth <= 0:
+                          return ghealth
+                          break
+                  elif ddice >= eatk:
+                    print("The "+ename+" did no damage to you.")
+                    time.sleep(1.5)
+                elif adice > edef:
+                  damage = adice - edef
+                  Damage = str(damage)
+                  ehp = ehp - damage
+                  print("You did", Damage , "damage to the "+ename+".")
+                  time.sleep(1.5)
+                  if ehp <= 0:
+                    print("You have defeated the "+ename+".")
+                    fight1end = random.randint(coinmin, coinmax)
+                    Fight1end = str(fight1end)  
+                    print("You have found", Fight1end, "coins on the "+ename+".")
+                    time.sleep(1.5)
+                    gmoney = gmoney + fight1end
+                    Coins = str(gmoney)
+                    print("You now have", Coins, "coins.")
+                    time.sleep(1.5)
+                    floorappend
+                    return ghealth, gmoney
+                  else:
+                    if ddice < eatk:
+                      edamage = eatk - ddice
+                      Edamage = str(edamage)
+                      print(ename+" did", Edamage, "damage to you.")
+                      ghealth = ghealth - edamage
+                      time.sleep(1.5)
+                      HP = str(ghealth)
+                      print("You have", HP, "health remaining.")
+                      time.sleep(1.5)
+                      if ghealth <= 0:
+                        return ghealth
+                        break
+                    elif ddice >= 2:
+                      print("The "+ename+" did no damage to you.")
+                      time.sleep(1.5)
+#Skip Combat Function
+
+
+#Rooms Arrays
+firstfloor = [1, 2, 3, 4, 5, 6, 7, 8]
+secondfloor = [9, 10, 11, 12]
+thirdfloor = []
+fourthfloor = []
+
+#Shops Functions
+def shopf1():
+  print("You find a shopkeeper that sells helpful items for your journey.")
+  time.sleep(2)
+  shopo1 = input("Would you like to purchase something from him? Y/N >> ")
+  time.sleep(1.5)
+  if shopo1 == "Y":
+    shope1 = False
+    while(shope1 == False):
+            print("Here are the shopkeeper's items for sale.")
+            time.sleep(1.5)
+            print(shop1)
+            time.sleep(1.5)
+            buy = input("Which item would you like to look at? 1/2/3/4 >> ")
+            if buy == "1":
+              print("The Rusty Helmet provides very little defence.")
+              time.sleep(1.5)
+              print("Cost: 5 coins")
+              time.sleep(1.5)
+              rhb = input("Would you like to purchase this item? Y/N >> ")
+              if rhb == "Y":
+                if Money >= 5:
+                  print("You have purchased the Rusty Helmet.")
+                  time.sleep(1.5)
+                  head.append("Rusty Helmet")
+                  shop1.remove("Rusty Helmet")
+                  Money = Money - 5
+                  Coins = str(Money)
+                  print("You have "+ Coins + " Coins remaining.")
+                  continue1 = input("Would you like to return to the shop? Y/N >> ")
+                  time.sleep(1.5)
+                  if continue1 == "Y":
+                    continue
+                  elif continue1 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+                elif Money < 5:
+                  time.sleep(1.5)
+                  print("You do not have enough coins to purchase this item.")
+                  time.sleep(1.5)
+                  continue3 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue3 == "Y":
+                    time.sleep(1.5)
+                    continue
+                  elif continue3 == "N":
+                    firstfloorE.remove(5)
+                    time.sleep(1.5)
+                    break
+              elif rhb == "N":
+                  time.sleep(1.5)
+                  continue2 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue2 == "Y":
+                    continue
+                  elif continue2 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+            if buy == "2":
+              print("The Knight Helm provides little attack.")
+              time.sleep(1.5)
+              print("Cost: 7 coins")
+              time.sleep(1.5)
+              rhb = input("Would you like to purchase this item? Y/N >> ")
+              if rhb == "Y":
+                if Money >= 7:
+                  print("You have purchased the Knight Helm.")
+                  time.sleep(1.5)
+                  head.append("Knight Helm")
+                  shop1.remove("Knight Helm")
+                  Money = Money - 7
+                  Coins = str(Money)
+                  print("You have "+ Coins + " Coins remaining.")
+                  continue1 = input("Would you like to return to the shop? Y/N >> ")
+                  time.sleep(1.5)
+                  if continue1 == "Y":
+                    continue
+                  elif continue1 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+                elif Money < 7:
+                  time.sleep(1.5)
+                  print("You do not have enough coins to purchase this item.")
+                  time.sleep(1.5)
+                  continue3 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue3 == "Y":
+                    time.sleep(1.5)
+                    continue
+                  elif continue3 == "N":
+                    firstfloorE.remove(5)
+                    time.sleep(1.5)
+                    break
+              elif rhb == "N":
+                  time.sleep(1.5)
+                  continue2 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue2 == "Y":
+                    continue
+                  elif continue2 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+            if buy == "3":
+              print("The Short Sword provides little attack.")
+              time.sleep(1.5)
+              print("Cost: 4 coins")
+              time.sleep(1.5)
+              rhb = input("Would you like to purchase this item? Y/N >> ")
+              if rhb == "Y":
+                if Money >= 4:
+                  print("You have purchased the Knight Helm.")
+                  time.sleep(1.5)
+                  weapon.append("Short Sword")
+                  shop1.remove("Short Sword")
+                  Money = Money - 4
+                  Coins = str(Money)
+                  print("You have "+ Coins + " Coins remaining.")
+                  continue1 = input("Would you like to return to the shop? Y/N >> ")
+                  time.sleep(1.5)
+                  if continue1 == "Y":
+                    continue
+                  elif continue1 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+                elif Money < 4:
+                  time.sleep(1.5)
+                  print("You do not have enough coins to purchase this item.")
+                  time.sleep(1.5)
+                  continue3 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue3 == "Y":
+                    time.sleep(1.5)
+                    continue
+                  elif continue3 == "N":
+                    firstfloorE.remove(5)
+                    time.sleep(1.5)
+                    break
+              elif rhb == "N":
+                  time.sleep(1.5)
+                  continue2 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue2 == "Y":
+                    continue
+                  elif continue2 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+            if buy == "4":
+              print("The Rouge Dagger increases a Rouge's ability chance.")
+              time.sleep(1.5)
+              print("Cost: 12 coins")
+              time.sleep(1.5)
+              rhb = input("Would you like to purchase this item? Y/N >> ")
+              if rhb == "Y":
+                if Money >= 12:
+                  print("You have purchased the Rouge Dagger.")
+                  time.sleep(1.5)
+                  inventory.append("Rouge Dagger")
+                  shop1.remove("Rouge Dagger")
+                  Money = Money - 12
+                  Coins = str(Money)
+                  print("You have "+ Coins + " Coins remaining.")
+                  continue1 = input("Would you like to return to the shop? Y/N >> ")
+                  time.sleep(1.5)
+                  if continue1 == "Y":
+                    continue
+                  elif continue1 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+                elif Money < 12:
+                  time.sleep(1.5)
+                  print("You do not have enough coins to purchase this item.")
+                  time.sleep(1.5)
+                  continue3 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue3 == "Y":
+                    time.sleep(1.5)
+                    continue
+                  elif continue3 == "N":
+                    firstfloorE.remove(5)
+                    time.sleep(1.5)
+                    break
+              elif rhb == "N":
+                  time.sleep(1.5)
+                  continue2 = input("Would you like to return to the shop? Y/N >> ")
+                  if continue2 == "Y":
+                    continue
+                  elif continue2 == "N":
+                    time.sleep(1.5)
+                    firstfloorE.remove(5)
+                    break
+  if shopo1 == "N":
+    time.sleep(1.5)
+    print("You leave the shop without looking at something")
+    firstfloorE.remove(5)
+    time.sleep(1.5)
+  else:
+    print("You must use Y/N!")
+    shopf1
+
+
+#Floors
+def roompick(rhealth):
+  ffpath = random.choice(firstfloor)
+  if ffpath == 1:
+    print("You find an empty room.")
+    firstfloor.remove(1)
+  elif ffpath == 2:
+    brokenchainmail
+  elif ffpath == 3:
+    print("You hear a cry for help.")
+    time.sleep(1)
+    helprogue = input("Do you go to help the person? Y/N >> ")
+    if(helprogue == "Y"):
+      print("You rush over to find a woman in a cloak being attacked by a troll. ")
+      time.sleep(2)
+      print("You sneak up on the troll and kill it with one attack to its back.")
+      time.sleep(2)
+      print("The woman appears to be a rogue and wants to join your party.")
+      roguejoin = input("Do you allow the rogue to continue with you from this point forward? Y/N >> ")
+      if (roguejoin == "Y"):
+        time.sleep(1)
+        party.append("Rouge")
+        print("The rogue joins you on your journey and provides extra stealth and attack.")
+        time.sleep(1)
+        firstfloor.remove(3)
+      elif(roguejoin == "N"):
+        time.sleep(1)
+        print("The rogue is disappointed but leaves alone on your journey.")
+        time.sleep(1)
+        firstfloor.remove(3)
+    elif(helprogue == "N"):
+      print("You go on your way without acknowledging the cry for help.")
+      firstfloor.remove(3)
+  elif ffpath == 4:
+    print("You find a large room with a vault requiring a key and a giant rat protecting it. ")
+    time.sleep(2)
+    Leave = input("Do you wish to fight the giant rat? Y/N >> ") #Pest that can deal very small damage
+    if(Leave == "Y"):
+      time.sleep(2)
+      grd1 = random.randint(0, 1) 
+      Grd1 = str(grd1)
+      print("The giant rat has been killed and you have suffered " + Grd1 + " damage from the battle." )
+      rhealth = rhealth - grd1
+      HP = str(rhealth)
+      time.sleep(2)
+      print("You have " + HP + " health remaining.")
+      time.sleep(1.5)
+      firstfloor.remove(4)
+  elif ffpath == 5:
+    
+      
+
+def firstfloorc():
+  center1 = input("Which direction would you like to go? N,S,E,W? >>> ")
+  time.sleep(1.5)
+  if center1 == "N":
+    print("Traveling North...")
+    time.sleep(1)
+    firstfloorn
+  elif center1 == "S":
+    print("Traveling South...")
+    time.sleep(1)
+    #firstfloors
+  elif center1 == "W":
+    print("Traveling West...")
+    time.sleep(1)
+    #firstfloorw
+  elif center1 == "E":
+    print("Traveling East...")
+    time.sleep(1)
+    #firstfloore
+  elif center1 == "N":
+    print("You cannot go any further in this direction.")
+    time.sleep(1.5)
+  else:
+    print("You must use N,S,E,W!")
+    time.sleep(1)
+    firstfloorc
+
+
+def firstfloorn():
+  ffnpath = random.choice(firstfloor)
+
+    
+  north1 = input("Which direction would you like to go? S,E,W? >>> ")
+  if north1 == "S":
+    print("Traveling South...")
+    time.sleep(1)
+    firstfloorc
+  elif north1 == "E":
+    print("Traveling East...")
+    time.sleep(1)
+    #firstfloorne
+
+
+def firstfloore():
+  ffepath = random.choice(firstfloore)
+
+
+
+
+  
+
+
+
+#Items
+def brokenchainmail():
+  print("You find a broken piece of chainmail on the ground.")
+  time.sleep(1)
+  brokenchainmail = input("Will you take it? Y/N >>> ")
+  if (brokenchainmail == "Y"):
+    time.sleep(1)
+    print("You have taken and equipped the chainmail.")
+    armor.append("BrokenChainmail")
+    firstfloor.remove(2)
+  elif brokenchainmail == "N":
+    time.sleep(1)
+    print("You leave the broken chainmail on the ground.")
+  else:
+    print("You must use Y/N!")
+    brokenchainmail
+
+
+
+
+
+
+
+
+
+#Combat
+def attackdice():
+  print("Rolling for attack...")
+  amin = 1
+  amax = 6
+  adiceroll = random.randint(amin, amax)
+  Adiceroll = str(adiceroll)
+  time.sleep(1.5)
+  print("You rolled", Adiceroll, "for your attack.")
+  adice = adiceroll
+adice = None
+
+def defencedice():
+  print("Rolling for defence...")
+  dmin = 1
+  dmax = 6
+  ddiceroll = random.randint(dmin, dmax)
+  Ddiceroll = str(ddiceroll)
+  time.sleep(1.5)
+  print("You rolled", Ddiceroll, "for your defense.")
+  ddice = ddiceroll
+ddice = None
+
+
+#Battle Loops
+battle1 = False
+battle2 = False
+battle3 = False
+
+#Abilities
+rougeamin = 1
+rougeamax = 12
+rougea = random.randint(rougeamin, rougeamax)
+
+rougebmin = 1
+rougebmax = 100
+rougeb = random.randint(rougebmin, rougebmax)
+
+#Arrays
+
+
+
+#Shops
+shop1 = ["Rusty Helmet", "Knight Helm", "Short Sword", "Rogue Dagger"]
+
+#Inventory
+inventory = []
+
+#Weapon
+weapon = []
+
+#Headgear
+head = []
+
+#Armor
+armor = []
+
+#Party
+party = []
+
